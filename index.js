@@ -120,27 +120,20 @@ Final Score: awayTeam - homeTeam */
 
 
 
-function scoreboard(getInningScore, inning, inningnum) {
- let hometeam = 0;
- let getInningScore = 0;
- let awayteam = 0;
-for (i = 0; i< inningnum; i++){
-  hometeam += inning();
-  awayteam += inning();
+function scoreboard(getInningScore, funcinning, numinning) {
+let total = {
+  "Home" : 0,
+  "Away" : 0
 }
-return{
-  1stinning : awayTeam - homeTeam,
-2ndinning : awayTeam - homeTeam,
-3rd inning: awayTeam - homeTeam
-4th inning: awayTeam - homeTeam
-5th inning: awayTeam - homeTeam
-6th inning: awayTeam - homeTeam
-7th inning: awayTeam - homeTeam
-8th inning: awayTeam - homeTeam
-9th inning: awayTeam - homeTeam
-Final Score: awayTeam - homeTeam
-};
+for (let i =1; i<= numinning; i++){
+  let score = funcinning(getInningScore,1)
+  total.Home += score.Home;
+  total.Away += score.Away;
+    console.log(`${i} Inning : Home Score = ${score.Home} Away Score is ${score.Away}`)
+}
+return `Final Score: Home = ${total.Home} Away = ${total.Away}`
+}
 
-}
+console.log(scoreboard(inning,finalScore,9));
 
 
